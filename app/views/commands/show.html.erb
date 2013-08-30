@@ -1,0 +1,27 @@
+<p>
+<strong>Owner:</strong>
+<%= @command.owner %>
+</p>
+
+<p>
+<strong>Status:</strong>
+<%= @command.status %>
+</p>
+
+<p>
+<strong>Button:</strong>
+<%= @command.button.title %>
+</p>
+
+<p>
+<strong>Image:</strong>
+<%= @command.img_path %>
+</p>
+
+<p>
+<strong>Audio:</strong>
+<%= @command.audio_path %>
+</p>
+
+<%= link_to 'Edit', edit_command_path(@command) %> |
+<%= link_to 'Back', commands_path %>

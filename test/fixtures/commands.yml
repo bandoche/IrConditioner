@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  owner: MyString
+  status: 1
+  button_id: 
+  img_path: MyString
+  audio_path: MyString
+
+two:
+  owner: MyString
+  status: 1
+  button_id: 
+  img_path: MyString
+  audio_path: MyString

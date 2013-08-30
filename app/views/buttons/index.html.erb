@@ -1,0 +1,16 @@
+<h1>Listing buttons</h1>
+
+<table>
+	<tr>
+		<th>Title</th>
+		<th>Cmd</th>
+	</tr>
+
+	<% @buttons.each do |button| %>
+	<tr>
+		<td><%= button.title %></td>
+		<td><%= button.cmd %></td>
+	</tr>
+	<% end %>
+</table>
+<%= link_to "New button", new_button_path %>

@@ -1,0 +1,44 @@
+<h1>New command request</h1>
+<%= form_for @command, url: commands_path do |f| %>
+<!-- :owner, :status, :button, :img_path, :audio_path -->
+<% if @command.errors.any? %>
+	<div id="errorExplanation">
+		<h2><%= pluralize(@command.errors.count, "error") %> prohibited this command from being saved:</h2>
+		<ul>
+		<% @command.errors.full_messages.each do |msg| %>
+			<li><%= msg %></li>
+		<% end %>
+		</ul>
+	</div>
+<% end %>
+<p>
+  <%= f.label :owner %><br/>
+  <%= f.text_field :owner %>
+</p>
+<!-- 
+<p>
+  <%= f.label :status %><br />
+  <%= f.text_field :status %>
+</p>
+ -->
+<p>
+  <%= f.label :button %><br />
+  <%= f.select :button, @buttons.map {|b| [b.title, b.id]} %>
+</p>
+
+<p>
+  <%= f.label :img_path %><br />
+  <%= f.text_field :img_path %>
+</p>
+
+<p>
+  <%= f.label :audio_path %><br />
+  <%= f.text_field :audio_path %>
+</p>
+
+<p>
+  <%= f.submit %>
+</p>
+<% end %>
+
+<%= link_to "Back", commands_path %>

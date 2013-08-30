@@ -1,0 +1,28 @@
+<h1>Listing command requests</h1>
+
+<table>
+	<tr>
+		<th>Req No.</th>
+		<th>Button</th>
+		<th>Owner</th>
+		<th>Status</th>
+		<th>Result</th>
+		<th>Operation</th>
+	</tr>
+	<% @commands.each do |command| %>
+	<tr>
+		<!-- <td><%= command.id %></td> -->
+        <td><%= link_to command.id, command %></td>
+		<td><%= command.button.title %></td>
+		<td><%= command.owner %></td>
+		<td><%= command.status %></td>
+		<td><%= command.img_path %> / <%= command.audio_path %></td>
+		<td>
+		<%= link_to 'Delete', [command],
+		method: :delete,
+		data: {confirm: 'Are you sure?' } %>
+		</td>
+	</tr>
+	<% end %>
+</table>
+<%= link_to "New command request", new_command_path %>

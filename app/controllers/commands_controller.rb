@@ -23,21 +23,14 @@ def create
 	end
 end
 
-# def create
-#   ref_models = params[:model].delete(:ref_models)
-#   @model = Model.new(params[:model])
-#   ref_models.each do |ref|
-#     @ref = RefModel.where("ref_name = ?", ref)
-#     @model.ref_models << @ref
-#   end
-#   respond_to do |format|
-#     ...
-#   end
-# end
-
+# GET /posts/1
+# GET /posts/1.json
 def show
-	# @command = Command.find(params[:id])
-	# @command.button_obj = Button.find(Integer(@command.button))
+end
+
+# GET /posts/1/edit
+def edit
+	@buttons = Button.all
 end
 
 def index
@@ -56,6 +49,23 @@ def destroy
 	end
 end
 
+# PATCH/PUT /commands/1
+# PATCH/PUT /commands/1.json
+def update
+	respond_to do |format|
+		# if (params[:command][:button] != '')
+		# 	params[:command][:button] = Button.find(params[:command][:button])
+		# end
+		if @command.update(command_params)
+			format.html { redirect_to @command, notice: 'Command was successfully updated.' }
+			format.json { head :no_content }
+		else
+			format.html { render action: 'edit' }
+			format.json { render json: @post.errors, status: :unprocessable_entity }
+		end
+	end
+end
+
 private
     # Use callbacks to share common setup or constraints between actions.
 	def set_command
@@ -63,7 +73,8 @@ private
 	end
 
 	def command_params
-		params.require(:command).permit(:owner, :status, :button, :img_path, :audio_path)
+		# params.require(:command).permit(:owner, :status, :img_path, :audio_path)
+		params.require(:command).permit(:owner, :status, :button_id, :img_path, :audio_path)
 	end
 
 end

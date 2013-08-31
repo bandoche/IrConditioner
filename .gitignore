@@ -31,3 +31,5 @@
 -rerun.txt
 -pickle-email-*.html
 .DS_Store
+
+*.log

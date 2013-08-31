@@ -11,6 +11,7 @@ IrConditioner::Application.routes.draw do
   # end
 
   resources :commands
+  get 'commands/:id/do_job' => 'commands#do_job'
 
 
   # Example of regular route:

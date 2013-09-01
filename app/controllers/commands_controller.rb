@@ -1,6 +1,7 @@
 class CommandsController < ApplicationController
 	before_action :set_command, only: [:show, :edit, :update, :destroy, :do_job]
 	protect_from_forgery :except => [:update]
+	http_basic_authenticate_with name: "test", password: "test"
 
 def new
 	@command = Command.new

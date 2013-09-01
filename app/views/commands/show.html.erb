@@ -20,9 +20,11 @@
 
 <p>
 <strong>Audio:</strong>
-<%= @command.audio_path %>
+<a href="/<%= @command.audio_path %>"><%= @command.audio_path %></a>
 </p>
 
 <%= link_to 'Edit', edit_command_path(@command) %> |
 <%= link_to 'Back', commands_path %>
-<%= button_to 'Do job', do_job_command_path(@command) %>
+<%= if @command.status === 1 then
+	button_to 'Do job', do_job_command_path(@command)
+end %>

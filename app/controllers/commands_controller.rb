@@ -66,10 +66,14 @@ end
 
 def do_job
 	# todo: 명령 실행하게. 결과 보여주게? 
-	result = system("/usr/bin/python /Users/bandoche/XCode/Git/pyIrConditioner/update_rails.py %s &" % params[:id])
-	respond_to do |format|
-		format.html { redirect_to @command, notice: 'Job is processing.' }
-		format.json { head :no_content } 
+
+	# status가 1일 때만 실행
+	if @command.status === 1 then
+		result = system("/usr/bin/python /Users/bandoche/XCode/Git/pyIrConditioner/update_rails.py %s &" % params[:id])
+		respond_to do |format|
+			format.html { redirect_to @command, notice: 'Job is processing.' }
+			format.json { head :no_content } 
+		end
 	end
 end
 

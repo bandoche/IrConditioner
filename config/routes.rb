@@ -17,6 +17,10 @@ IrConditioner::Application.routes.draw do
   end
     # get :do_job, :on => :member
 
+
+
+  # match '*path' => redirect('/')
+
   # get 'commands/:id/do_job' => 'commands#do_job'
 
 

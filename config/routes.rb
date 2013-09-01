@@ -10,8 +10,14 @@ IrConditioner::Application.routes.draw do
   # resources :commands
   # end
 
-  resources :commands
-  get 'commands/:id/do_job' => 'commands#do_job'
+  resources :commands do
+    member do
+      post :do_job
+    end
+  end
+    # get :do_job, :on => :member
+
+  # get 'commands/:id/do_job' => 'commands#do_job'
 
 
   # Example of regular route:
